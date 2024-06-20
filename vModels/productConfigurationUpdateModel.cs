@@ -2,13 +2,14 @@
 
 namespace e_commerce.vModels
 {
-    public class productItemModel
+    public class productConfigurationUpdateModel
     {
-        public productItemModel()
+        public productConfigurationUpdateModel()
         {
-            variationOptions_Ids = new int[0]; // Initializes with an empty array
+            variationOptions_Ids = new List<int>(); // Initializes with an empty array
         }
-        public int productItemId { get; set; }
+
+        public int Id { get; set; }
         [Required]
         [Range(int.MinValue, int.MaxValue, ErrorMessage = "Please enter a valid integer.")]
         public int? ProductId { get; set; }

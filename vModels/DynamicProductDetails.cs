@@ -8,6 +8,7 @@
             SKU = "";
             productItemImages = new List<string>();
         }
+        // product_config_ID
         public int? productItemId { get; set; }
         public int? productId { get; set; }
         public List<int>? selectedVariationOptions { get; set; }

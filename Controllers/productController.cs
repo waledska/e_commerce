@@ -107,26 +107,26 @@ namespace e_commerce.Controllers
         }
 
         [HttpPost("addProductItem")]
-        public async Task<IActionResult> AddProductItem([FromForm] productItemModel model)
+        public async Task<IActionResult> AddProductItem([FromForm] productConfigurationModel model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var result = await _productService.addProductItem(model);
+            var result = await _productService.addProductConfiguration(model);
             if (result != "")
                 return BadRequest(result);
             return Ok("item added to the product successfully");
         }
 
         [HttpPost("updateProductItem")]
-        public async Task<IActionResult> UpdateProductItem([FromForm] productItemUpdateModel model)
+        public async Task<IActionResult> UpdateProductItem([FromForm] productConfigurationUpdateModel model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var result = await _productService.updateProductItem(model);
+            var result = await _productService.updateProductConfiguration(model);
             if (result != "")
                 return BadRequest(result);
             return Ok("Product Item updated successfully");
@@ -139,7 +139,7 @@ namespace e_commerce.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var result = await _productService.deleteProductItem(productItemId);
+            var result = await _productService.deleteProductConfiguration(productItemId);
             if (result != "")
                 return BadRequest(result);
 

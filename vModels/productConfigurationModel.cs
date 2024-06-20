@@ -2,14 +2,12 @@
 
 namespace e_commerce.vModels
 {
-    public class productItemUpdateModel
+    public class productConfigurationModel
     {
-        public productItemUpdateModel()
+        public productConfigurationModel()
         {
-            variationOptions_Ids = new int[0]; // Initializes with an empty array
+            variationOptions_Ids = new List<int>(); // Initializes with an empty array
         }
-
-        public int Id { get; set; }
         [Required]
         [Range(int.MinValue, int.MaxValue, ErrorMessage = "Please enter a valid integer.")]
         public int? ProductId { get; set; }
@@ -24,6 +22,6 @@ namespace e_commerce.vModels
         [Range(typeof(decimal), "0", "79228162514264337593543950335", ErrorMessage = "Please enter a valid decimal.")]
         public decimal? Price { get; set; }
         [Required]
-        public int[]? variationOptions_Ids { get; set; }
+        public List<int>? variationOptions_Ids { get; set; }
     }
 }

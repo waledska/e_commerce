@@ -99,7 +99,7 @@ namespace e_commerce.Services
             return true;
         }
 
-        public async Task<string> addProductItem(productItemModel model) //---------------------------
+        public async Task<string> addProductConfiguration(productConfigurationModel model) //---------------------------
         {
             var message = "";
             if (_db.Products.FirstOrDefault(x => x.Id == model.ProductId) == null)
@@ -197,7 +197,7 @@ namespace e_commerce.Services
             return message;
         }
 
-        public async Task<string> deleteProductItem(int? ProductItemId) //---------------------------
+        public async Task<string> deleteProductConfiguration(int? ProductItemId) //---------------------------
         {
             var message = "";
             if (!ProductItemId.HasValue)
@@ -249,7 +249,7 @@ namespace e_commerce.Services
         }
 
 
-        public async Task<List<productItemModel>> getAllForVariation(int varId)
+        public async Task<List<productConfigurationModel>> getAllForVariation(int varId)
         {
             throw new NotImplementedException();
         }
@@ -381,7 +381,7 @@ namespace e_commerce.Services
         }
 
 
-        public async Task<string> updateProductItem(productItemUpdateModel model) //---------------------------
+        public async Task<string> updateProductConfiguration(productConfigurationUpdateModel model) //---------------------------
         {
             var message = "";
 

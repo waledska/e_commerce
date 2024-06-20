@@ -3,6 +3,8 @@ using e_commerce.vModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis;
 using System.Collections.Generic;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Model;
+using System.Diagnostics.Metrics;
 
 namespace e_commerce.Services
 {
@@ -20,17 +22,20 @@ namespace e_commerce.Services
             int limit = 10);
         
 
-        // ProductItems
-        Task<string> addProductItem(productItemModel model);
-        Task<string> updateProductItem(productItemUpdateModel model); // not allowed to add or remove variation only modify in the current variation's options
-        Task<string> addVariationForProductItems(addVariationForProductItemsModel model); // add
-        Task<string> removeVariationFromProduct(int productId); // remove
-        Task<string> deleteProductItem(int? ProductItemId);
+        // product_configuration
+        Task<string> addProductConfiguration(productConfigurationModel model);
+        Task<string> updateProductConfiguration(productConfigurationUpdateModel model); // not allowed to add or remove variation only modify in the current variation's options
+        Task<string> deleteProductConfiguration(int? productConfigurationId);
 
         // getProductDetails =>
         Task<staticProductDetails> getStaticProductDetails(int productId);
         Task<DynamicProductDetails> getDynamicProductDetails(selectedProductItemData model); // i feel this need also varOpIds as input
+
+        // variation options with products =>
+        //get available variation option after selecting a variation option
         Task<List<AvailableVariationOptions>> getAvailableVariationOptions(selectedProductItemData model);
+
+        /////////////////////////////////////////////////
 
         // Variation
         Task<string> addVariation(variationModel model);
@@ -43,7 +48,7 @@ namespace e_commerce.Services
         Task<string> addVariationOption(variationOptionModel model);
         Task<string> updateVariationOption(variationOptionModel model);
         Task<string> deleteVariationOption(int varOptionId);
-        Task<List<productItemModel>> getAllForVariation(int varId);
+        Task<List<productConfigurationModel>> getAllForVariation(int varId);
 
         // productReviews
         Task<string> addUserReviewForProduct(variationOptionModel model);

@@ -150,7 +150,7 @@ namespace e_commerce.Controllers
             var message = await _authService.SendLinkConfirmGmailAsync(userId);
             if(message == null)
             {
-                return Ok("Confirmation Link send send to user's Email Successfully");
+                return Ok("Confirmation Link send to user's Email Successfully");
             }
             else
             {

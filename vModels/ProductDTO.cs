@@ -14,7 +14,7 @@
         public decimal? MinPriceInProductItems { get; set; }
         public decimal? MaxPriceInProductItems { get; set; }
         public List<int>? SelectedVariationOptions_ids { get; set; }
-
         public double? AverageRatesForProductItems { get; set; } // Optional, make sure to handle nulls
+        public int selectedProdItem_Id { get; set; }
     }
 }
